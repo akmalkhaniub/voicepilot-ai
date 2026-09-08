@@ -1,6 +1,6 @@
 # VoicePilot AI: Real-Time Enterprise Voice Assistant Platform
 
-> **Full-Duplex Conversational Voice AI Platform** engineered for sub-300ms roundtrip latency, instant barge-in interruption handling, and enterprise observability. Built to match CloudPSO's **AI Engineer / Developer** role specifications.
+> **Full-Duplex Conversational Voice AI Platform** engineered for sub-300ms roundtrip latency, instant barge-in interruption handling, and enterprise observability.
 
 ---
 

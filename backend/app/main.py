@@ -12,7 +12,7 @@ logging.basicConfig(
 app = FastAPI(
     title=settings.PROJECT_NAME,
     version=settings.VERSION,
-    description="Full-Duplex Real-Time Voice Assistant API for CloudPSO Enterprise Platform"
+    description="Full-Duplex Real-Time Voice Assistant API for Enterprise Platforms"
 )
 
 # Enable CORS for Next.js frontend

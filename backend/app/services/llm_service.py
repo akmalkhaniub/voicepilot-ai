@@ -8,7 +8,7 @@ from app.core.config import settings
 
 logger = logging.getLogger(__name__)
 
-SYSTEM_PROMPT = """You are VoicePilot, an ultra-fast, professional AI Voice Assistant for CloudPSO Enterprise.
+SYSTEM_PROMPT = """You are VoicePilot, an ultra-fast, professional AI Voice Assistant for Enterprise Support.
 Keep responses direct, natural, conversational, and concise (1 to 2 sentences per turn), as they will be spoken aloud via TTS.
 Avoid bullet points, special markdown symbols, or long lists. Speak warmly and efficiently.
 You have access to tools for customer account lookup and appointment scheduling."""
@@ -110,7 +110,7 @@ class LLMService:
     def _generate_mock_reply(self, user_query: str) -> str:
         q = user_query.lower()
         if "account" in q or "status" in q:
-            return "I've checked your CloudPSO enterprise account. Your tier is Active with 99.99% SLA uptime."
+            return "I've checked your enterprise account. Your tier is Active with 99.99% SLA uptime."
         elif "schedule" in q or "demo" in q or "appointment" in q:
             return "Certainly! I've reserved a technical demonstration slot for your team for next Tuesday at 2 PM EST."
         elif "latency" in q or "barge-in" in q or "speech" in q:

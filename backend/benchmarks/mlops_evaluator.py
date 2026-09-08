@@ -74,10 +74,10 @@ def evaluate_stt_providers() -> list:
     """Compare Word Error Rate (WER) and latency across STT models."""
     test_cases = [
         {
-            "ref": "CloudPSO provides real time conversational artificial intelligence agents.",
-            "deepgram_nova3": "CloudPSO provides real-time conversational artificial intelligence agents.",
-            "whisper_large_v3": "Cloud PSO provides real time conversational artificial intelligence agents.",
-            "conformer_ctc": "CloudPSO provides real time conversation artificial intelligent agents."
+            "ref": "Our platform provides real time conversational artificial intelligence agents.",
+            "deepgram_nova3": "Our platform provides real-time conversational artificial intelligence agents.",
+            "whisper_large_v3": "Our platform provides real time conversational artificial intelligence agents.",
+            "conformer_ctc": "Our platform provides real time conversation artificial intelligent agents."
         },
         {
             "ref": "Can you please schedule an appointment for next Tuesday at two PM?",
