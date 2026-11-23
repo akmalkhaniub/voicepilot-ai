@@ -1,8 +1,10 @@
 import logging
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
+from app.api.a2a_card import get_signed_agent_card
 from app.api.websocket_endpoint import router as ws_router
+from app.observability.telemetry import global_telemetry_registry
 
 logging.basicConfig(
     level=logging.INFO,
@@ -47,6 +49,17 @@ def health_check():
         "default_model": settings.DEFAULT_MODEL,
         "default_voice": settings.DEFAULT_VOICE
     }
+
+
+@app.get("/metrics/slo")
+def get_slo_metrics():
+    return global_telemetry_registry.snapshot()
+
+
+@app.get("/.well-known/agent-card.json")
+def get_a2a_agent_card(request: Request):
+    base_url = str(request.base_url).rstrip("/")
+    return get_signed_agent_card(base_url=base_url, version=settings.VERSION)
 
 
 if __name__ == "__main__":

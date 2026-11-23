@@ -22,9 +22,11 @@ async def websocket_voice_agent_endpoint(websocket: WebSocket):
     await websocket.accept()
     logger.info("Client connected to voice-agent WebSocket.")
 
+    traceparent = websocket.headers.get("traceparent") or websocket.query_params.get("traceparent")
     pipeline = VoiceSessionPipeline(
         send_json_fn=lambda data: websocket.send_text(json.dumps(data)),
-        send_bytes_fn=lambda chunk: websocket.send_bytes(chunk)
+        send_bytes_fn=lambda chunk: websocket.send_bytes(chunk),
+        traceparent=traceparent,
     )
 
     await pipeline.start()
